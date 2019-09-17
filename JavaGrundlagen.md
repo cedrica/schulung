@@ -188,12 +188,12 @@ Meinste Fehler mit denen man in der Webwelt zu tun haben wird sind die 2xx,4xx,5
    * 200 => Anfrage erfolgreicht bearbeited 
    * 201 => Resource Erfolgreich angelegt
 ---
-   * 400 => BAd Request
+   * 400 => Baed Request
    * 401 => Unauthorized
    * 403 => Forbidden
    * 404 => Not Found
 ---
-   * 500 => internal Server Fehler
+   * 500 => Internal Server Fehler
  
 
 
@@ -388,9 +388,10 @@ Werkzeuge um Software schnell und einfacher zu bauen.
 
 ###Beobachter-Muster 
 ![beobachter-muster](images/beobachter-muster.PNG)
+
 **Abbildung 3:** Beobachter Muster
 
-###Observer
+**Observer**
 ```java
 public class Zuhoerer implements Observer{
      @Override 
@@ -399,7 +400,7 @@ public class Zuhoerer implements Observer{
       }
 }
 ```
-###Observable
+**Observable**
 ```java
 public class Speaker extends Observable{
     public void speak(String something){
@@ -408,7 +409,7 @@ public class Speaker extends Observable{
     }
 }
 ```
-###Start
+**Start**
 ```java
 public class Start {
     Start(){
@@ -851,4 +852,169 @@ Pre-Request:
    * Testszenario vorbereiten
    * Testfälle nach Testszenarien schreiben 
     
-    
+##14. Logging
+Fehler, Warnungen, Informationen werden entweder in einer Dateie oder in der Console ausgegeben. 
+Diese passiert durch Konfiguration sogennannter Appenders die entscheiden welche Ausgabeart berücksichtig sein soll. d.h. ob es in der Konsole ausgegeben werden soll oder in eine Datei oder auch per Mail ..und usw.
+Wichtigste Appenders sind
+   * _ConsoleAppender (Logs in der Konsole ausgeben)_
+   * _FileAppender (Logs in einer Datei ausgeben)_
+   * _SMTPAppender (Log-Dateien an Email senden)_
+   * _RollingFileAppender (Log-Dateien zu archivieren)_
+   
+Fehler Level werden ab das eingestellte root Level bis zum höchste Level ausgegeben. Das heißt setze ich das root Level auf WARNING
+dann werden WARNING, ERROR und FATAL ausgegeben. Setze ich auf ERROR dann werden nur ERROR und FATAL ausgegeben ..usw
+
+####Konfiguration
+Konfiguration erfolgt entweder via Confi-Dateie oder via Javacode. Konfiguriert soll 
+   * _die Händlers (gewünschte Ausgabe Wege)_
+   * _das Level und Format jedes Händlers_
+   
+###14.1. Java Util Logging
+**logging.properties MUSTER**
+```properties
+handlers=java.util.logging.FileHandler, java.util.logging.ConsoleHandler
+
+tutego.level = ALL
+
+java.util.logging.ConsoleHandler.level=ALL
+java.util.logging.ConsoleHandler.formatter=java.util.logging.SimpleFormatter
+
+java.util.logging.FileHandler.level=SEVERE
+java.util.logging.FileHandler.pattern=tutego.log
+java.util.logging.FileHandler.formatter=java.util.logging.SimpleFormatter
+
+```
+**Ausloggbare Level**
+   * FINEST
+   * FINER
+   * FINE
+   * CONFIG
+   * INFO
+   * WARNING
+   * SEVERE
+   
+###14.2. LOG4J Logging
+```xml
+<dependency> 
+    <groupId>log4j</groupId> 
+    <artifactId>log4j</artifactId> 
+    <version>1.2.17</version> 
+</dependency>
+```
+
+**logging.properties MUSTER**
+#####Config File Muster
+```properties
+log4j.rootLogger=DEBUG, file, stdout
+
+#stdout für KonsoleHandler
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%-4r [%t] %-5p %c %x – %m%n
+
+#file für FileHandler
+log4j.appender.file=org.apache.log4j.ConsoleAppender
+log4j.appender.file.File=C:\\log4j-application.log
+log4j.appender.file.MaxFileSize=5MB
+log4j.appender.file.MaxBackupIndex=10
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
+```
+**Ausloggbare Level**
+   * OFF
+   * FATAL
+   * ERROR
+   * WARNING
+   * INFO
+   * DEBUG
+
+###14.3. SLF4J Logging
+####MVN Dependencies
+```xml
+<dependency> 
+    <groupId>org.slf4j</groupId> 
+    <artifactId>slf4j-log4j12</artifactId> 
+    <scope>test</scope> 
+</dependency>
+```
+Config-Datei ist eine .xml Datei
+
+**logback.xml**
+```xml
+<configuration>
+
+    <property name="HOME_LOG" value="logs/app.log"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${HOME_LOG}</file>
+        <append>true</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${HOME_LOG}</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/archived/app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- each archived file, size max 10MB -->
+            <maxFileSize>10MB</maxFileSize>
+            <!-- total size of all archive files, if total size > 20GB, it will delete old archived file -->
+            <totalSizeCap>20GB</totalSizeCap>
+            <!-- 60 days to keep -->
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="EMAIL" class="ch.qos.logback.classic.net.SMTPAppender">
+        <smtpHost>smtp.mailgun.org</smtpHost>
+        <smtpPort>25</smtpPort>
+        <username>123</username>
+        <password>123</password>
+        <to>TO_EMAIL</to>
+        <to>RO_ANOTHER_EMAIL</to>
+        <from>FROM_EMAIL</from>
+        <subject>TESTING: %logger{20} - %m</subject>
+
+        <layout class="ch.qos.logback.classic.html.HTMLLayout"/>
+
+        <!-- for testing , comment in production, default 256 -->
+        <cyclicBufferTracker class="ch.qos.logback.core.spi.CyclicBufferTracker">
+            <!-- Send just one log entry per email, ready for a lot of emails if you put one. -->
+            <bufferSize>1</bufferSize>
+        </cyclicBufferTracker>
+
+        <!-- for testing , comment in production, default asynchronousSending = true -->
+        <asynchronousSending>false</asynchronousSending>
+
+    </appender>
+
+    <logger name="<groupId des Projekts hier eingeben>" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="FILE-ROLLING"/>
+    </logger>
+
+    <root level="error">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>
+
+```
+
+###14.4. Eigene Logging Klasse schreiben
+     
