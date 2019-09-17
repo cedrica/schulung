@@ -9,13 +9,10 @@ public class AccountService {
             new Account("", "", 11),
             new Account("", "", 11),
     };
+
     public Account findAccount(int index, Account[] accountList) throws CustomException {
-        //if(accountList == null || index >= accountList.length)
-        //    return null;
         if(accountList == null)
             throw new CustomException("AccountList ist null", "Cedric Leumaleu");
-       // if(index >= accountList.length)
-         //   throw new IndexOutOfBoundsException();
         return accountList[index];
     }
 
@@ -29,7 +26,7 @@ public class AccountService {
     }
 
     public Account findAccount2(int index, Account[] accountList) {
-        System.out.println("Test");
+        if(accountList == null || index >= accountList.length) return  null;
         return accountList[index];
     }
 }

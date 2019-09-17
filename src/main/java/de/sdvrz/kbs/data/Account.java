@@ -4,6 +4,7 @@ public class Account {
     private String firstName;
     private String lastName;
     private int age;
+    private Adress adress;
 
     public Account(String firstName, String lastName, int age) {
         this.firstName = firstName;
@@ -34,5 +35,13 @@ public class Account {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Adress getAdress() {
+        return adress;
+    }
+
+    public void setAdresse(Adress adress) {
+        this.adress = adress;
     }
 }
