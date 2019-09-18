@@ -181,19 +181,19 @@ Es gibt insgesamt 5 Error Code die von 1xx bis 5xx gehen.
    * 1xx stehen für information
    * 2xx stehen für Erfolgreiche Anfrage
    * 3xx stehen für Umleitung
-   * 4xx stehen für client Fehler
+   * 4xx stehen für client Fehler 
    * 5xx stehen für server Fehler
 
 Meinste Fehler mit denen man in der Webwelt zu tun haben wird sind die 2xx,4xx,5xx. Nämlich
    * 200 => Anfrage erfolgreicht bearbeited 
    * 201 => Resource Erfolgreich angelegt
 ---
-   * 400 => Baed Request
-   * 401 => Unauthorized
-   * 403 => Forbidden
-   * 404 => Not Found
+   * 400 => Bad Request (Server kann der URI nicht zuordnen)
+   * 401 => Unauthorized (Server Check ob client eingegebene auth Daten mit Db oder LDAP stimmen)
+   * 403 => Forbidden (Server check ob clien passende Rechte hat, wenn nicht dann 403)
+   * 404 => Not Found (Das heißt z.b. client suche ein User welche der Server in der DB nicht findet. Dann return den Server ein 404)
 ---
-   * 500 => Internal Server Fehler
+   * 500 => Internal Server Fehler (Jemand hat ein Programmierfehler am Server gemacht z.B. Nullpointer...usw)
  
 
 
