@@ -9,12 +9,15 @@
     <url>www.shulung.com</url>
 
 
+    <properties>
+        <java.version>1.7</java.version>
+        <apache.commons.version>3.0</apache.commons.version>
+    </properties>
+
     <description>
         Diese projekt dient als Schulung für Back-End Entwickler Profis Ismaro
     </description>
 
-    <build>
-    </build>
     <dependencies>
         <dependency>
             <groupId>org.apache.maven.plugin-tools</groupId>
@@ -25,7 +28,7 @@
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-plugin-api</artifactId>
-            <version>3.0</version>
+            <version>${apache.commons.version}</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -46,23 +49,16 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
-    <repositories>
-        <repository>
-            <id>maven-group</id>
-            <url>http://your-host:8081/repository/maven-group/</url>
-        </repository>
 
-
-    </repositories>
     <!-- sag maven wo er dein Artifact im Server bzw. in Nexus ablegen soll -->
     <!-- mvn deploy -->
     <distributionManagement>
         <snapshotRepository>
-            <id>nexus-snapshots</id>
+            <id>snapshots</id>
             <url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
         <repository>
-            <id>nexus-releases</id>
+            <id>releases</id>
             <url>http://localhost:8081/nexus/content/repositories/releases/</url>
         </repository>
     </distributionManagement>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+ http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+	<!-- setting.xml configuration -->
+	<localRepository>/Users/cedric/.m2/repository</localRepository>
+	<offline>false</offline> <!-- mvn can not get dependencies from internet -->
+	<interactiveMode>true</interactiveMode> <!-- mvn muss download dependency automaticaly -->
+	<pluginGroups>
+		<pluginGroup>org.apache.commons</pluginGroup>
+		<pluginGroup>org.apache.text </pluginGroup>
+		<pluginGroup>com.google.inject</pluginGroup>
+	</pluginGroups>
+	<servers>
+		<!-- Damit darf mvn auf central zugreifen -->
+		<server>
+			<id>central</id>
+			<username>admin</username>
+			<password>admin123</password>
+		</server>
+		<!-- Damit darf mvn auf group zugreifen -->
+		<server>
+			<id>public</id>
+			<username>admin</username>
+			<password>admin123</password>
+		</server>
+	</servers>
+	<!-- Mirrors = damit mvn nicht mehr in Zentral schauet sondern in hier gegebene repos-->
+	<!-- Mirrors = Ableitung und Erweiterung von Zentral zu unsere Wünsche -->
+	<!-- Wo sollen die Artifakten abgelegt werden -->
+	<mirrors>
+		<mirror>
+			<id>mirror-for-snapshots</id>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
+			<mirrorOf>snapshots</mirrorOf> <!--???-->
+		</mirror>
+		<mirror>
+			<id>mirror-for-release</id>
+			<url>http://localhost:8081/nexus/content/repositories/releases/</url>
+			<mirrorOf>releases</mirrorOf>
+		</mirror>
+		<mirror>
+			<id>mirror-for-schulung</id>
+			<url>http://localhost:8081/nexus/content/repositories/for-schulung/</url>
+			<mirrorOf>for-schulung</mirrorOf>
+		</mirror>
+	</mirrors>
+	<!-- Wenn Proxy Server vorhanden ist dann Zugang hier eingeben -->
+	<proxies>
+		<!--<proxy>
+			<id>proxy-for-siemens</id>
+			<host>www.proxy-for-siemens.de</host>
+			<port>8000</port>
+			<username>xxx</username>
+			<password>yyyy</password>
+		</proxy>
+		<proxy>
+			<id>proxy-for-raab</id>
+			<host>www.proxy-raab.de</host>
+			<port>8900</port>
+			<username>sss</username>
+			<password>yyyy</password>
+		</proxy>-->
+	</proxies>
+
+	<!-- Werden für entsprencde Zweck bzw. Projekte aktierviert -->
+	<profiles>
+		<!-- Überschreibt was in pom.xml definiert ist -->
+		<profile>
+			<id>for-schulung</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<java.version>1.8</java.version>
+			</properties>
+			<!-- Von welche repo sollen die Dependencies geladen werden -->
+			<repositories>
+				<repository>
+					<id>for-schulung</id>
+					<url>http://localhost:8081/nexus/content/repositories/for-schulung/</url>
+				</repository>
+				<repository>
+					<id>public</id>
+					<url>http://localhost:8081/nexus/content/groups/public/</url>
+				</repository>
+			</repositories>
+			<!-- Woher solen die plugin geladen werden
+			<pluginRepositories>
+				<pluginRepository></pluginRepository>
+			</pluginRepositories>-->
+		</profile>
+
+		<profile>
+			<id>for-changemanagement</id>
+			<properties>
+				<java.version>1.7</java.version>
+			</properties>
+			<repositories>
+				<repository>
+					<id>for-schulung</id>
+					<url>http://localhost:8081/nexus/content/repositories/for-schulung/</url>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
+
+	<activeProfiles>
+		<activeProfile>for-changemanagement</activeProfile>
+	</activeProfiles>
+
+</settings>	
+
+
+
+
+

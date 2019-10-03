@@ -2,26 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca5237fd-1b09-4819-9acc-325d86bb48b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/plugins/MavenPragmaMojo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaGrundlagen.md" beforeDir="false" afterPath="$PROJECT_DIR$/JavaGrundlagen.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schulung.iml" beforeDir="false" afterPath="$PROJECT_DIR$/schulung.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schulung.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/schulung.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schulung.iws" beforeDir="false" afterPath="$PROJECT_DIR$/schulung.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/data/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/data/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/data/Adress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/data/Adress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/exception/CustomException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/exception/CustomException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/manager/AccountManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/manager/AccountManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/service/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/service/AdressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/service/AdressService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/sdvrz/kbs/service/AccountServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/plugins/MavenPragmaMojo.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/sdvrz/kbs/data/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/sdvrz/kbs/data/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/de/sdvrz/kbs/service/AccountServiceTest.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +32,7 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="/usr/local/apache-maven/apache-maven-3.1.1" />
+        <option name="userSettingsFile" value="$USER_HOME$/.m2/settings.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -56,6 +42,12 @@
         <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
+    <option name="disabledProfiles">
+      <list>
+        <option value="for-changemanagement" />
+        <option value="for-schulung" />
+      </list>
+    </option>
   </component>
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
@@ -63,6 +55,7 @@
   <component name="ProjectId" id="1RbP6hVFR9wnGI8tuAfqeU2N1Yj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -173,7 +166,8 @@
       <workItem from="1568979798255" duration="838000" />
       <workItem from="1569932674579" duration="1386000" />
       <workItem from="1569941081487" duration="267000" />
-      <workItem from="1570014952753" duration="8760000" />
+      <workItem from="1570014952753" duration="9576000" />
+      <workItem from="1570090247713" duration="8296000" />
     </task>
     <servers />
   </component>
