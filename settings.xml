@@ -73,9 +73,6 @@
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
-			<properties>
-				<java.version>1.8</java.version>
-			</properties>
 			<!-- Von welche repo sollen die Dependencies geladen werden -->
 			<repositories>
 				<repository>
@@ -95,9 +92,6 @@
 
 		<profile>
 			<id>for-changemanagement</id>
-			<properties>
-				<java.version>1.7</java.version>
-			</properties>
 			<repositories>
 				<repository>
 					<id>for-schulung</id>

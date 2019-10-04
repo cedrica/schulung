@@ -48,7 +48,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="schulung" target="1.5" />
+      <module name="schulung" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />

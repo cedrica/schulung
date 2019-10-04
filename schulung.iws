@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca5237fd-1b09-4819-9acc-325d86bb48b8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MAVEN.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/MAVEN.pptx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schulung.iml" beforeDir="false" afterPath="$PROJECT_DIR$/schulung.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schulung.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/schulung.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schulung.iws" beforeDir="false" afterPath="$PROJECT_DIR$/schulung.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/sdvrz/kbs/plugins/MavenPragmaMojo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/de/sdvrz/kbs/data/Account.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/de/sdvrz/kbs/exception/CustomException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/de/sdvrz/kbs/service/AccountService.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,9 +51,14 @@
         <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
+    <option name="enabledProfiles">
+      <list>
+        <option value="prod" />
+      </list>
+    </option>
     <option name="disabledProfiles">
       <list>
-        <option value="for-changemanagement" />
+        <option value="dev" />
         <option value="for-schulung" />
       </list>
     </option>
@@ -61,7 +75,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -71,14 +85,19 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="de.sdvrz.kbs.service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources/env" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -87,6 +106,7 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="K:\developement\workspace\schulung" />
     </key>
   </component>
@@ -102,9 +122,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AccountServiceTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="K:/my-programms/jdk1.8.0" />
+      <option name="ALTERNATIVE_JRE_PATH" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_73.jdk/Contents/Home" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="schulung" />
@@ -142,8 +162,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AccountServiceTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.AccountServiceTest" />
         <item itemvalue="JUnit.All in schulung" />
       </list>
     </recent_temporary>
@@ -167,7 +187,8 @@
       <workItem from="1569932674579" duration="1386000" />
       <workItem from="1569941081487" duration="267000" />
       <workItem from="1570014952753" duration="9576000" />
-      <workItem from="1570090247713" duration="8296000" />
+      <workItem from="1570090247713" duration="9022000" />
+      <workItem from="1570192976288" duration="6571000" />
     </task>
     <servers />
   </component>
